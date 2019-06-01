@@ -7,7 +7,8 @@
 */
 
 // tyrannosaurus, carnivorous, 7000kg, 12m, Late Cretaceous
-tyrannosaurus = {
+firstDinosaur = {
+  name: 'tyrannosaurus',
   diet: 'carnivorous',
   weight: '7000kg',
   length: '12m',
@@ -15,14 +16,16 @@ tyrannosaurus = {
 };
 
 // stegosaurus, herbivorous, 2000kg, 9m, Late Jurassic
-stegosaurus = {
+secondDinosaur = {
+  name: 'stegosaurus',
   diet: 'herbivorous',
   weight: '2000kg',
   length: '9m',
   period: 'Late Jurassic'
 };
 // velociraptor, carnivorous, 15kg, 1.8m, Late Cretaceous
-velociraptor = {
+thirdDinosaur = {
+   name: 'velociraptor',
   diet: 'carnivorous',
   weight: '15kg',
   length: '1.8m',
@@ -31,24 +34,24 @@ velociraptor = {
 // Using your dinosaur objects, log answers to these questions:
 
 // How much did tyrannosaurus weigh?
-console.log(tyrannosaurus.weight);
+console.log(firstDinosaur.weight);
 
 // What was the diet of a velociraptor?
-console.log(velociraptor.diet);
+console.log(thirdDinosaur.diet);
 
 // How long was a stegosaurus?
-console.log(stegosaurus.length);
+console.log(secondDinosaur.length);
 
 // What time period did tyrannosaurus live in?
-console.log(tyrannosaurus.period);
+console.log(firstDinosaur.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
-tyrannosaurus.roar = function(){
+firstDinosaur.roar = function(){
   console.log("RAWERSRARARWERSARARARRRR!")
 };
 
-console.log(tyrannosaurus.roar());
+console.log(firstDinosaur.roar());
 
 
 // ==== Arrays ====
@@ -75,7 +78,7 @@ for(let i = 0; i < graduates.length; i++){
   universities.push(graduates[i].university)
 };
 
-console.log(universities);
+console.log(universities.sort());
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. 
 
@@ -121,7 +124,7 @@ The zoo wants to display both the scientific name and the animal name in front o
 */
 const animalNames = [];
 let name = zooAnimals.forEach(function(ani){
-  animalNames.push(ani.animal_name + ani.scientific_name)
+  animalNames.push('Name: ' + ani.animal_name +  ', ' + 'Scientific: ' + ani.scientific_name + '.')
 })
 console.log(animalNames);
 
@@ -158,11 +161,14 @@ console.log(lowerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = 0;
-for(let i = 0; i < zooAnimals.length; i++){
-  populationTotal += zooAnimals[i].population
-}
+const populationTotal = [];
+let totalPop = zooAnimals.reduce(function(total, pop){
+  return total + pop.population
+},0)
+populationTotal.push(totalPop)
 console.log(populationTotal);
+
+
 
 
 
